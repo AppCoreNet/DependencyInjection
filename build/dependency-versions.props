@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup>
+    <AppCore_Shared_Version>1.0.0-alpha*</AppCore_Shared_Version>
+  </PropertyGroup>
+</Project>
