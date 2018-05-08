@@ -15,24 +15,41 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
-using StructureMap;
+using System.Collections.Generic;
+using AppCore.Diagnostics;
 
-namespace AppCore.DependencyInjection
+namespace AppCore.DependencyInjection.StructureMap
 {
-    public class StructureMapServiceRegistrarTests : ServiceRegistrarTests
+    /// <summary>
+    /// StructureMap based <see cref="IContainer"/> implementation.
+    /// </summary>
+    public class StructureMapContainer : IContainer
     {
-        public override IServiceRegistrar Registrar { get; }
+        private readonly global::StructureMap.IContainer _container;
 
-        public StructureMapServiceRegistrarTests()
+        public ContainerCapabilities Capabilities { get; } = ContainerCapabilities.ContraVariance;
+
+        public StructureMapContainer(global::StructureMap.IContainer container)
         {
-            var registry = new StructureMapServiceRegistrar();
-            Registrar = registry;
+            Ensure.Arg.NotNull(container, nameof(container));
+            _container = container;
         }
 
-        protected override IServiceProvider BuildServiceProvider()
+        public object Resolve(Type contractType)
         {
-            return new Container(c => c.AddRegistry((StructureMapServiceRegistrar) Registrar))
-                .GetInstance<IServiceProvider>();
+            return _container.GetInstance(contractType);
+        }
+
+        public object ResolveOptional(Type contractType)
+        {
+            Ensure.Arg.NotNull(contractType, nameof(contractType));
+
+            if (contractType.IsClosedTypeOf(typeof(IEnumerable<>)))
+            {
+                return _container.GetInstance(contractType);
+            }
+
+            return _container.TryGetInstance(contractType);
         }
     }
 }

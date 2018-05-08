@@ -15,25 +15,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
-using Autofac;
 
 namespace AppCore.DependencyInjection
 {
-    public class AutofacServiceRegistrarTests : ServiceRegistrarTests
+    /// <summary>
+    /// Defines component registration options.
+    /// </summary>
+    [Flags]
+    public enum ComponentRegistrationFlags
     {
-        public ContainerBuilder ContainerBuilder { get; }
+        /// <summary>
+        /// No special registration options.
+        /// </summary>
+        None,
 
-        public override IServiceRegistrar Registrar { get; }
+        /// <summary>
+        /// Skips registration if component with same contract is already registered.
+        /// </summary>
+        SkipIfRegistered,
 
-        public AutofacServiceRegistrarTests()
-        {
-            ContainerBuilder = new ContainerBuilder();
-            Registrar = new AutofacServiceRegistrar(ContainerBuilder);
-        }
-
-        protected override IServiceProvider BuildServiceProvider()
-        {
-            return ContainerBuilder.Build().Resolve<IServiceProvider>();
-        }
+        /// <summary>
+        /// Skips registration if component with same contract and implementation is already registered.
+        /// </summary>
+        Enumerable
     }
 }

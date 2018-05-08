@@ -15,35 +15,48 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using AppCore.Diagnostics;
-using StructureMap;
+using Autofac;
+using Autofac.Features.Variance;
 
-namespace AppCore.DependencyInjection
+namespace AppCore.DependencyInjection.Autofac
 {
     /// <summary>
-    /// StructureMap based <see cref="IServiceProvider"/> implementation.
+    /// Autofac based <see cref="IContainer"/> implementation.
     /// </summary>
-    public class StructureMapServiceProvider : IServiceProvider
+    public class AutofacContainer : IContainer
     {
-        private readonly IContainer _container;
+        private readonly IComponentContext _context;
 
-        public StructureMapServiceProvider(IContainer container)
+        public ContainerCapabilities Capabilities { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AutofacContainer"/> class.
+        /// </summary>
+        /// <param name="context">The <see cref="IComponentContext"/>.</param>
+        public AutofacContainer(IComponentContext context)
         {
-            Ensure.Arg.NotNull(container, nameof(container));
-            _container = container;
+            Ensure.Arg.NotNull(context, nameof(context));
+
+            _context = context;
+
+            var capabilities = ContainerCapabilities.None;
+            if (context.ComponentRegistry.Sources.OfType<ContravariantRegistrationSource>().Any())
+                capabilities = capabilities | ContainerCapabilities.ContraVariance;
+
+            Capabilities = capabilities;
         }
 
-        public object GetService(Type serviceType)
+        public object Resolve(Type contractType)
         {
-            Ensure.Arg.NotNull(serviceType, nameof(serviceType));
+            return _context.Resolve(contractType);
+        }
 
-            if (serviceType.IsClosedTypeOf(typeof(IEnumerable<>)))
-            {
-                return _container.GetInstance(serviceType);
-            }
-
-            return _container.TryGetInstance(serviceType);
+        /// <inheritdoc />
+        public object ResolveOptional(Type contractType)
+        {
+            return _context.ResolveOptional(contractType);
         }
     }
 }

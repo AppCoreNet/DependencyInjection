@@ -15,33 +15,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System;
-using AppCore.Diagnostics;
-using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace AppCore.DependencyInjection
+namespace AppCore.DependencyInjection.Microsoft.Extensions
 {
-    /// <summary>
-    /// Autofac based <see cref="IServiceProvider"/> implementation.
-    /// </summary>
-    public class AutofacServiceProvider : IServiceProvider
+    public class MicrosoftComponentRegistryTests : ComponentRegistryTests
     {
-        private readonly IComponentContext _context;
+        public IServiceCollection ServiceCollection { get; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AutofacServiceProvider"/> class.
-        /// </summary>
-        /// <param name="context">The <see cref="IComponentContext"/>.</param>
-        public AutofacServiceProvider(IComponentContext context)
+        public override IComponentRegistry Registry { get; }
+
+        public MicrosoftComponentRegistryTests()
         {
-            Ensure.Arg.NotNull(context, nameof(context));
-            _context = context;
+            ServiceCollection = new ServiceCollection();
+            Registry = new MicrosoftComponentRegistry(ServiceCollection);
         }
 
-        /// <inheritdoc />
-        public object GetService(Type serviceType)
+        protected override IContainer BuildContainer()
         {
-            Ensure.Arg.NotNull(serviceType, nameof(serviceType));
-            return _context.ResolveOptional(serviceType);
+            return new MicrosoftContainer(ServiceCollection.BuildServiceProvider());
         }
     }
 }

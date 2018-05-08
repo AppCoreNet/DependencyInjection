@@ -14,25 +14,26 @@
 // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-namespace AppCore.DependencyInjection
-{
-    /// <summary>
-    /// Represents a type used to register services with a dependency injection container.
-    /// </summary>
-    /// <seealso cref="ServiceRegistration"/>
-    /// <seealso cref="AssemblyRegistration"/>
-    public interface IServiceRegistrar
-    {
-        /// <summary>
-        /// Registers a service with the dependency injection container.
-        /// </summary>
-        /// <param name="registration">The <see cref="ServiceRegistration"/> describing the service to register.</param>
-        void Register(ServiceRegistration registration);
+using System;
+using Autofac;
 
-        /// <summary>
-        /// Registers services from a set of assemblies with the dependency injection container.
-        /// </summary>
-        /// <param name="registration">The <see cref="AssemblyRegistration"/> describing the services to register.</param>
-        void RegisterAssembly(AssemblyRegistration registration);
+namespace AppCore.DependencyInjection.Autofac
+{
+    public class AutofacComponentRegistryTests : ComponentRegistryTests
+    {
+        public ContainerBuilder ContainerBuilder { get; }
+
+        public override IComponentRegistry Registry { get; }
+
+        public AutofacComponentRegistryTests()
+        {
+            ContainerBuilder = new ContainerBuilder();
+            Registry = new AutofacComponentRegistry(ContainerBuilder);
+        }
+
+        protected override IContainer BuildContainer()
+        {
+            return new AutofacContainer(ContainerBuilder.Build());
+        }
     }
 }
