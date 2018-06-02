@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.Microsoft.Extens
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.Autofac.Tests", "test\AppCore.DI.Autofac.Tests\AppCore.DI.Autofac.Tests.csproj", "{BF9CCF53-4CFC-4CC1-941F-F8C25CFED05B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.Specification.Tests", "test\AppCore.DI.Specification.Tests\AppCore.DI.Specification.Tests.csproj", "{AB11EC7B-7555-4403-9AD5-AC4DE69C7838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.Tests.Specification", "test\AppCore.DI.Tests.Specification\AppCore.DI.Tests.Specification.csproj", "{AB11EC7B-7555-4403-9AD5-AC4DE69C7838}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.StructureMap", "src\AppCore.DI.StructureMap\AppCore.DI.StructureMap.csproj", "{A9700CC3-BE16-43B8-A001-394E2F87620A}"
 EndProject
