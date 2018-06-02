@@ -8,8 +8,6 @@ image:
 - Ubuntu
 
 nuget:
-  account_feed: true
-  project_feed: true
   disable_publish_on_pr: true
 
 configuration: Debug
@@ -25,11 +23,3 @@ branches:
 artifacts:
   - path: '**/*.nupkg'
     name: NuGet Packages
-
-deploy:
-  - provider: NuGet
-    server: https://ci.appveyor.com/nuget/appcorenet-dependencyinjection
-    api_key:
-      secure: RFSWyPM/9cnKfMgh8YAG5IRYtKFAPW+Husl561qvxVA=
-    on:
-      branch: dev
