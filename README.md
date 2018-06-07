@@ -1,7 +1,7 @@
 DependencyInjection
 -------------------
 
-![Build status](https://ci.appveyor.com/api/projects/status/iuo60eg8q0cuh5p7/branch/dev?svg=true)](https://ci.appveyor.com/project/AppCoreNet/dependencyinjection/branch/dev)
+[![Build status](https://ci.appveyor.com/api/projects/status/iuo60eg8q0cuh5p7/branch/dev?svg=true)](https://ci.appveyor.com/project/AppCoreNet/dependencyinjection/branch/dev)
 
 This repository includes projects containing abstractions and implementations for various dependency injection containers.
 The AppCore .NET DI framework provides dependency injection container APIs which are agnostic of the actual DI container. 
