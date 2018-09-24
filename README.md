@@ -8,10 +8,11 @@ The AppCore .NET DI framework provides dependency injection container APIs which
 
 ## Packages
 
-Package                                            | Description
----------------------------------------------------|------------------------------------------------------------------
-`AppCore.DependencyInjection.Abstractions`         | Provides the container agnostic public API of the DI framework.
-`AppCore.DependencyInjection.AssemblyExtensions`   | Provides extensions to register component via assembly scanning.
-`AppCore.DependencyInjection.Autofac`              | Autofac based implementations.
-`AppCore.DependencyInjection.Microsoft.Extensions` | Microsoft.Extensions.DependencyInjection based implementations.
-`AppCore.DependencyInjection.StructureMap`         | StructureMap based implementations.
+Package                                                 | Description
+--------------------------------------------------------|---------------------------------------------------------------------------
+`AppCore.DependencyInjection.Abstractions`              | Provides the container agnostic public API of the DI framework.
+`AppCore.DependencyInjection.AssemblyExtensions`        | Provides extensions to register component via assembly scanning.
+`AppCore.DependencyInjection.DependencyModelExtensions` | Provides extensions to register component via dependency context scanning.
+`AppCore.DependencyInjection.Autofac`                   | Autofac based implementations.
+`AppCore.DependencyInjection.Microsoft.Extensions`      | Microsoft.Extensions.DependencyInjection based implementations.
+`AppCore.DependencyInjection.StructureMap`              | StructureMap based implementations.
