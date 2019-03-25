@@ -1,8 +1,8 @@
 <Project>
   <PropertyGroup>
-    <Authors>Christian Prochnow</Authors>
+    <Authors>AppCore .NET Contributors</Authors>
     <Company>The AppCore .NET project</Company>
-    <Product>AppCore DependencyInjection Framework</Product>
+    <Product>AppCore .NET Dependency Injection</Product>
     <Copyright>Copyright (c) 2018,2019 the AppCore .NET project</Copyright>
     <VersionPrefix>1.0.0</VersionPrefix>
     <PackageLicenseUrl>https://github.com/AppCoreNet/DependencyInjection/blob/dev/LICENSE</PackageLicenseUrl>
