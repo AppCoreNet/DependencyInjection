@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.Abstractions", "src\AppCore.DI.Abstractions\AppCore.DI.Abstractions.csproj", "{FB2D7C70-9241-4E83-B2E5-7FC4BC64B9A6}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.AssemblyExtensions.Tests", "test\AppCore.DI.AssemblyExtensions.Tests\AppCore.DI.AssemblyExtensions.Tests.csproj", "{DB3AF389-7F07-47B6-B198-9C2903AE1FB1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.DependencyModelExtensions", "src\AppCore.DI.DependencyModelExtensions\AppCore.DI.DependencyModelExtensions.csproj", "{D4257C3A-EE72-4FC5-990B-629ED1131857}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCore.DI.Tests", "test\AppCore.DI.Tests\AppCore.DI.Tests.csproj", "{D44B2B6B-750F-4A58-A66E-80BA7FB05063}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{D4257C3A-EE72-4FC5-990B-629ED1131857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4257C3A-EE72-4FC5-990B-629ED1131857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4257C3A-EE72-4FC5-990B-629ED1131857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D44B2B6B-750F-4A58-A66E-80BA7FB05063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D44B2B6B-750F-4A58-A66E-80BA7FB05063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D44B2B6B-750F-4A58-A66E-80BA7FB05063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D44B2B6B-750F-4A58-A66E-80BA7FB05063}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
