@@ -10,6 +10,8 @@ as you keep the copyright notice intact when redistributing or otherwise reusing
 
 ## Packages
 
+Latest development packages can be found on [MyGet](https://www.myget.org/gallery/appcorenet).
+
 Package                                                         | Description
 ----------------------------------------------------------------|------------------------------------------------------------------------------------------------------
 `AppCore.DependencyInjection.Abstractions`                | Contains the public API for the dependency injection framework.
