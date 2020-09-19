@@ -1,9 +1,13 @@
 AppCore .NET Dependency Injection
 ---------------------------------
 
-[![Build Status](https://dev.azure.com/AppCoreNet/DependencyInjection/_apis/build/status/AppCoreNet.DependencyInjection?branchName=dev)](https://dev.azure.com/AppCoreNet/DependencyInjection/_build/latest?definitionId=2&branchName=dev)
+[![Build Status](https://dev.azure.com/AppCoreNet/DependencyInjection/_apis/build/status/AppCoreNet.DependencyInjection%20CI?branchName=dev)](https://dev.azure.com/AppCoreNet/DependencyInjection/_build/latest?definitionId=2&branchName=dev)
+![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/AppCoreNet/DependencyInjection/2?compact_message)
+![Azure DevOps coverage (branch)](https://img.shields.io/azure-devops/coverage/AppCoreNet/DependencyInjection/2/dev)
+![Nuget](https://img.shields.io/nuget/v/AppCore.DependencyInjection.Abstractions)
 
-This repository contains dependency injection container abstractions and implementations targeting the .NET Framework and .NET Core.
+This repository contains abstractions and implementations for various dependency injection containers. It targets the .NET Framework
+and .NET Core.
 
 All artifacts are licensed under the [MIT license](LICENSE). You are free to use them in open-source or commercial projects as long
 as you keep the copyright notice intact when redistributing or otherwise reusing our artifacts.
